@@ -1,6 +1,8 @@
 # product-agent-test
 This is a lab test to create an agent that integrates with Foundry IQ to search and retrieve information from knowledge bases. It is creating a search resource, configure a knowledge base with sample data, build an agent in the portal, and then connect to it from Visual Studio Code to interact programmatically.
 
+### Sample data: An outdoor company named Contoso is selling the outdoor & hiking facilities & items. The agent will ground the knowledge by leveraging the backpack guide, camping accessories & tent catalog - 3 PDF product files in total. 
+
 ## Steps:
 ### Step 1:
 Create Foundry Project and Agent: Start a new project/hub, then build an agent with instructions to search knowledge bases exclusively for product queries.
