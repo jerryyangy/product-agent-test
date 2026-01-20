@@ -15,8 +15,7 @@ if not project_endpoint or not agent_name:
 print(f"Connecting to project: {project_endpoint}")
 print(f"Using agent: {agent_name}\n")
 
-# TODO: Connect to the project and create a conversation
-# Connect to the project and agent
+# Connect to the project and create a conversation
 credential = DefaultAzureCredential(
     exclude_environment_credential=True,
     exclude_managed_identity_credential=True
@@ -36,13 +35,6 @@ print(f"Connected to agent: {agent.name} (id: {agent.id})\n")
 # Create a new conversation
 conversation = openai_client.conversations.create(items=[])
 print(f"Created conversation (id: {conversation.id})\n")
-# Add your code here to:
-# 1. Create DefaultAzureCredential
-# 2. Create AIProjectClient with endpoint
-# 3. Get the OpenAI client
-# 4. Get the agent by name
-# 5. Create a new conversation
-
 
 # Conversation history for context (client-side tracking)
 conversation_history = []
@@ -56,8 +48,7 @@ def send_message_to_agent(user_message):
         print(f"You: {user_message}\n")
         print("Agent: ", end="", flush=True)
         
-        # TODO: Add user message to conversation and get response
-                # Add user message to the conversation
+        # Add user message to conversation and get response
         openai_client.conversations.items.create(
             conversation_id=conversation.id,
             items=[{"type": "message", "role": "user", "content": user_message}],
@@ -131,22 +122,13 @@ def send_message_to_agent(user_message):
                 extra_body={"agent": {"name": agent.name, "type": "agent_reference"}},
                 input=""
             )
-        # Add your code here to:
-        # 1. Add the user message to the conversation using conversations.items.create()
-        # 2. Create a response using responses.create() with agent reference
-        # 3. Extract and display the response text
-        # 4. Check for and display any citations
+
         
         # Store in conversation history (client-side)
         conversation_history.append({
             "role": "user",
             "content": user_message
-        })
-        
-        # Your code will go here
-
-
-        
+        })      
         
         # Extract the response text
         if response and response.output_text:
